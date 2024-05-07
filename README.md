@@ -5,7 +5,9 @@
 
 </div>
 
-![DocRes](images/motivation.jpg)  
+<p align="center">
+<img src="images/motivation.jpg" width="600">
+</p>
 
 This is the official implementation of our paper [DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks]().
 
