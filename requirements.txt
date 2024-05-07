@@ -1,0 +1,4 @@
+numpy==1.21.6
+opencv_python==4.2.0
+skimage==0.19.3
+torch==1.11.0+cu113
