@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-<img src="images/motivation.jpg" width="600">
+<img src="images/motivation.jpg" width="400">
 </p>
 
 This is the official implementation of our paper [DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks]().
