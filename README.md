@@ -9,7 +9,7 @@
 <img src="images/motivation.jpg" width="400">
 </p>
 
-This is the official implementation of our paper [DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks]().
+This is the official implementation of our paper [DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks](https://arxiv.org/abs/2405.04408).
 
 ## News 
 🔥 A comprehensive [Recommendation for Document Image Processing](https://github.com/ZZZHANG-jx/Recommendations-Document-Image-Processing) is available.
