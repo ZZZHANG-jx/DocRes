@@ -3,6 +3,8 @@
 
 # DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks
 
+[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/qubvel-hf/documents-restoration)
+
 </div>
 
 <p align="center">
