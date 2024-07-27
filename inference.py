@@ -1,5 +1,7 @@
 import os 
 import cv2 
+import glob
+from pathlib import Path
 import utils
 import argparse
 import numpy as np
@@ -333,9 +335,6 @@ def save_results(
 
 
 if __name__ == '__main__':
-
-    import glob
-    from pathlib import Path
 
     ## model init
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
