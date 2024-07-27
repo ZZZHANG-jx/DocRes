@@ -252,10 +252,6 @@ def binarization(model,im_path):
     
     return prompt[:,:,0],prompt[:,:,1],prompt[:,:,2],out_im
 
-
-
-
-
 def get_args():
     parser = argparse.ArgumentParser(description='Params')
     parser.add_argument('--model_path', nargs='?', type=str, default='./checkpoints/docres.pkl',help='Path of the saved checkpoint')
@@ -320,22 +316,56 @@ def inference_one_im(model,im_path,task):
     return prompt1,prompt2,prompt3,restorted
 
 
+def save_results(
+    img_path: str,
+    out_folder: str,
+    task: str,
+    save_dtsprompt: bool,
+):
+    im_name = os.path.split(img_path)[-1]
+    im_format = '.'+im_name.split('.')[-1]
+    save_path = os.path.join(out_folder, im_name.replace(im_format, '_' + task + im_format))
+    cv2.imwrite(save_path, restorted)
+    if save_dtsprompt:
+        cv2.imwrite(save_path.replace(im_format, '_prompt1' + im_format), prompt1)
+        cv2.imwrite(save_path.replace(im_format, '_prompt2' + im_format), prompt2)
+        cv2.imwrite(save_path.replace(im_format, '_prompt3' + im_format), prompt3)
+
 
 if __name__ == '__main__':
+
+    import glob
+    from pathlib import Path
+
     ## model init
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     args = get_args()
     model = model_init(args)
 
-    ## inference
-    prompt1,prompt2,prompt3,restorted = inference_one_im(model,args.im_path,args.task)
+    img_source = args.im_path
 
-    ## results saving
-    im_name = os.path.split(args.im_path)[-1]
-    im_format = '.'+im_name.split('.')[-1]
-    save_path = os.path.join(args.out_folder,im_name.replace(im_format,'_'+args.task+im_format))
-    cv2.imwrite(save_path,restorted)
-    if args.save_dtsprompt:
-        cv2.imwrite(save_path.replace(im_format,'_prompt1'+im_format),prompt1)
-        cv2.imwrite(save_path.replace(im_format,'_prompt2'+im_format),prompt2)
-        cv2.imwrite(save_path.replace(im_format,'_prompt3'+im_format),prompt3)
+    if Path(img_source).is_dir():
+        img_paths = glob.glob(os.path.join(img_source, '*'))
+        for img_path in img_paths:
+            ## inference
+            prompt1,prompt2,prompt3,restorted = inference_one_im(model,img_path,args.task)
+
+            ## results saving
+            save_results(
+                img_path=img_path,
+                out_folder=args.out_folder,
+                task=args.task,
+                save_dtsprompt=args.save_dtsprompt,
+            )
+            
+    else:
+        ## inference
+        prompt1,prompt2,prompt3,restorted = inference_one_im(model,img_source,args.task)
+
+        ## results saving
+        save_results(
+            img_path=img_source,
+            out_folder=args.out_folder,
+            task=args.task,
+            save_dtsprompt=args.save_dtsprompt,
+        )
