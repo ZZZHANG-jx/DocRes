@@ -74,7 +74,17 @@ You can find the links for downloading the dataset we used for training in [this
 ### Appearance enhancement
 - Doc3DShade
     - Clean PDFs collection: You should collection PDFs files from the internet and convert them as images to serve as the source for synthesis.
-    - Extract shadows from Doc3DShade by using `data/preprocess/shadow_extract.py` and dewarp the obtained shadows by using `data/MBD/infer.py`. Then you should specify self.shadow_paths in `loaders/docres_loader.py`
+    - Shadow extraction:
+        - Use `data/MBD/infer.py` (by utilizing the the mask, as shown in img1) to dewarp the original images (as shown in img2) and alb_images (as shown in img3), resulting in the dewarped images img4 and img5. Note that img1, img2, and img3 all originate from the raw data in the Doc3DShade dataset.
+        - Based on img4 and img5, use `data/preprocess/shadow_extract.py` to extract the shadow images (as shown in img6)
+    - Point self.shadow_paths in `loaders/docres_loader.py` to the folder containing the shadow images.
+
+|img1|img2|img3|
+|----|----|----|
+|![img1](./images/1.png)|![img2](./images/2.png)|![img3](./images/3.png)|
+|img4|img5|img6|
+|![img4](./images/4.png)|![img5](./images/5.png)|![img6](./images/6.png)|
+
 - RealDAE
 - JSON preparation: 
 ```
