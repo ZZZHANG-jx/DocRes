@@ -25,9 +25,7 @@ for im_path in tqdm(im_paths):
     _, mask = cv2.threshold(cv2.cvtColor(alb,cv2.COLOR_BGR2GRAY), 1, 255, cv2.THRESH_BINARY)
 
 
-    ## clean
-    # std = np.max(np.std(alb,axis=-1))
-    # print(std)
+    ## Avoid some bad cases
     im_min = np.min(im,axis=-1)
     kernel = np.ones((3,3))
     mask_erode = cv2.dilate(mask,kernel=kernel)
@@ -38,13 +36,12 @@ for im_path in tqdm(im_paths):
     if metric==0 or metric==1:
         metric_num = np.sum(im_min[mask_erode==255]==metric)
         if metric_num>=20:
-            alb_temp = alb.astype(np.float64)
-            alb_temp[alb_temp==0] = alb_temp[alb_temp==0]+1e-5
-            shadow = np.clip(im.astype(np.float64)/alb_temp,0,1)
-            shadow = (shadow*255).astype(np.uint8)
-
-            shadow_path = im_path.replace('img/','temp/')
-            cv2.imwrite(shadow_path,shadow)
+            # alb_temp = alb.astype(np.float64)
+            # alb_temp[alb_temp==0] = alb_temp[alb_temp==0]+1e-5
+            # shadow = np.clip(im.astype(np.float64)/alb_temp,0,1)
+            # shadow = (shadow*255).astype(np.uint8)
+            # shadow_path = im_path.replace('img/','temp/')
+            # cv2.imwrite(shadow_path,shadow)
             continue
 
 
