@@ -75,8 +75,10 @@ You can find the links for downloading the dataset we used for training in [this
 - Doc3DShade
     - Clean PDFs collection: You should collection PDFs files from the internet and convert them as images to serve as the source for synthesis.
     - Shadow extraction:
-        - Use `data/MBD/infer.py` (by utilizing the the mask, as shown in img1) to dewarp the original images (as shown in img2) and alb_images (as shown in img3), resulting in the dewarped images img4 and img5. Note that img1, img2, and img3 all originate from the raw data in the Doc3DShade dataset.
-        - Based on img4 and img5, use `data/preprocess/shadow_extract.py` to extract the shadow images (as shown in img6)
+        - Run `python data/preprocess/shadow_extraction.py` to extract shadows. 
+        - The principle of  `data/preprocess/shadow_extraction.py`:
+            - step1: utilize the the mask (as shown in img1) to dewarp the original images (as shown in img2) and alb_images (as shown in img3), resulting in the dewarped images img4 and img5
+            - step2: extract the shadow images (as shown in img6) based on img4 and img5.
     - Point self.shadow_paths in `loaders/docres_loader.py` to the folder containing the shadow images.
 
 |img1|img2|img3|
