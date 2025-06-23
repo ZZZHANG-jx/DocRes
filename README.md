@@ -14,6 +14,7 @@
 This is the official implementation of our paper [DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks](https://arxiv.org/abs/2405.04408).
 
 ## News 
+🔥 [2025.2] Our new work [LGGPT](https://github.com/NiceRingNode/LGGPT) has been accepted to IJCV 2025! A lightweight LLM that unifies versatile layout generation tasks! Welcome to follow!
 🔥 A comprehensive [Recommendation for Document Image Processing](https://github.com/ZZZHANG-jx/Recommendations-Document-Image-Processing) is available.
 
 
