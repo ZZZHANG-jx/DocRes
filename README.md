@@ -14,6 +14,8 @@
 This is the official implementation of our paper [DocRes: A Generalist Model Toward Unifying Document Image Restoration Tasks](https://arxiv.org/abs/2405.04408).
 
 ## News 
+🔥 [2025.6] Beyond GPT-4o, we evaluate more SOTA image generators' image generation abilities in various document processing tasks. Check [here](https://github.com/NiceRingNode/GPT-4o-Image-Generation-for-OCR)! 🔥
+
 🎉 [2025.5] We evaluate the image generation ability of GPT-4o, including various document processing tasks. Check [here](https://github.com/NiceRingNode/GPT-4o-Image-Generation-for-OCR)! 🔥
 
 🎉 [2025.2] Our new work [LGGPT](https://github.com/NiceRingNode/LGGPT) has been accepted to IJCV 2025, an LLM that unifies versatile layout generation tasks! Welcome to follow!
